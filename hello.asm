@@ -3,8 +3,32 @@
 global  _start
 section .text
 _start:
+        mov edx, 12
+        mov ecx, star
+        mov ebx,1
+        mov eax,4
+        int 0x80
+
+        mov edx, 1
+        mov ecx, nl
+        mov ebx,1
+        mov eax,4
+        int 0x80
+
         mov edx,len
         mov ecx,msg
+        mov ebx,1
+        mov eax,4
+        int 0x80
+
+        mov edx, 12
+        mov ecx, star
+        mov ebx,1
+        mov eax,4
+        int 0x80
+
+        mov edx, 1
+        mov ecx, nl
         mov ebx,1
         mov eax,4
         int 0x80
@@ -15,3 +39,5 @@ _start:
 section .data
 msg db 'Hello world', 0xa
 len equ $ - msg
+star times 12 db '*'
+nl db '', 0xa
